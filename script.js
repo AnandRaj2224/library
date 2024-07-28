@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
       cardPages.textContent = `Total Pages: ${this.totalPages}`;
       card.appendChild(cardPages);
 
+      const readOrNot = document.createElement('button');
+       readOrNot.classList = 'readOrNot';
+       readOrNot.textContent = 'new';
+       card.appendChild(readOrNot);
+
+       readOrNot.addEventListener('click',() =>{
+        readOrNot.textContent = 'completed';
+       })
       return card;
     };
   }
@@ -59,9 +67,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Display the new book in the container
     container.appendChild(newBook.createCard());
-
-    console.log(newBook); // Display the new book to verify it was added
-    console.log(myLibrary); // Display the library to verify the new book is added
 
     popUp.close(); // Close the dialog
     bookForm.reset(); // Clear the form for the next input
